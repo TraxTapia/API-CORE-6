@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "78a7bc43-72a3-4b2c-b9ed-94b29ba94362": {
+      "ProjectGuid": "78a7bc43-72a3-4b2c-b9ed-94b29ba94362",
+      "DisplayName": "WEBAPITRAX",
+      "ColorIndex": 0
+    },
+    "94d4c355-8f02-45cc-b1ea-c1eaac78a2f6": {
+      "ProjectGuid": "94d4c355-8f02-45cc-b1ea-c1eaac78a2f6",
+      "DisplayName": "Api.Models.Web",
+      "ColorIndex": 1
+    },
+    "d6acd2f2-c3a0-4ce3-8568-b40b21e942a5": {
+      "ProjectGuid": "d6acd2f2-c3a0-4ce3-8568-b40b21e942a5",
+      "DisplayName": "Web.Api.TraxModels",
+      "ColorIndex": 2
+    },
+    "2e565db8-f539-4010-96fc-5dbdde7b184b": {
+      "ProjectGuid": "2e565db8-f539-4010-96fc-5dbdde7b184b",
+      "DisplayName": "Web.Api.Models",
+      "ColorIndex": 3
+    },
+    "72787350-4922-480a-b9ca-d2e9392dd02b": {
+      "ProjectGuid": "72787350-4922-480a-b9ca-d2e9392dd02b",
+      "DisplayName": "Web.Api.DAO",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Archivos varios",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 5
+}
