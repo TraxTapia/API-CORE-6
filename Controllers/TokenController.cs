@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -9,6 +10,8 @@ using Web.Api.DAO.ContextBD;
 using Web.Api.Models.Models;
 using Web.Api.Models.Models.Identity;
 using Web.Api.Models.OperationResult;
+using Web.Api.Models.Settings;
+using Web.Api.RepositoryTrax.Core;
 
 namespace WEBAPITRAX.Controllers
 {
@@ -16,14 +19,28 @@ namespace WEBAPITRAX.Controllers
     [ApiController]
     public class TokenController : ControllerBase
     {
+        public IConfiguration Configuration { get; }
         public IConfiguration _configuration;
-        private readonly DataBaseContext _context;
+        //private readonly DataBaseContext _context;
+        CoreApi implement = null;
+        private readonly IOptions<AppSettings> settings;
 
-        public TokenController(IConfiguration config, DataBaseContext context)
+        private readonly ILogger logger;
+
+        public TokenController(IOptions<AppSettings> _appSettings, ILogger<UsersController> logger)
         {
-            _configuration = config;
-            _context = context;
+            implement = new CoreApi(_appSettings);
+            settings = _appSettings;
+            this.logger = logger;
         }
+
+
+
+        //public TokenController(IConfiguration config, DataBaseContext context)
+        //{
+        //    _configuration = config;
+        //    _context = context;
+        //}
 
         //[HttpPost]
         //public async Task<IActionResult> Post(UserInfo _userData)
@@ -69,18 +86,21 @@ namespace WEBAPITRAX.Controllers
         [HttpPost]
         public async Task<LoginResponseDTO> GetToken(UserInfo _userData)
         {
+            //IOptions<AppSettings> appSettings;
+            IOptions<AppSettings> _appSettings;
+           
             LoginResponseDTO _Response = new LoginResponseDTO();
 
             if (_userData != null && _userData.Email != null && _userData.Password != null)
             {
 
-                var user = await GetUser(_userData.Email, _userData.Password);
+                var user = await implement.GetUser(_userData.Email, _userData.Password);
 
                 if (user != null)
                 {
                     //create claims details based on the user information
                     var claims = new[] {
-                        new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
+                        new Claim(JwtRegisteredClaimNames.Sub,settings.Value.Jwt["Subject"] ),
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                         new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
                         new Claim("UserId", user.UserId.ToString()),
@@ -88,11 +108,11 @@ namespace WEBAPITRAX.Controllers
                         new Claim("UserName", user.UserName),
                         new Claim("Email", user.Email)
                     };
-                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(settings.Value.Jwt["Key"]));
                     var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
                     var token = new JwtSecurityToken(
-                        _configuration["Jwt:Issuer"],
-                        _configuration["Jwt:Audience"],
+                     settings.Value.Jwt["Issuer"],
+                       settings.Value.Jwt["Audience"],
                         claims,
                         expires: DateTime.UtcNow.AddMinutes(10),
                         signingCredentials: signIn);
@@ -118,13 +138,5 @@ namespace WEBAPITRAX.Controllers
 
         }
 
-        private async Task<UserInfo> GetUser(string email, string password)
-        {
-            if (true)
-            {
-
-            }
-            return await _context.UserInfos.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
-        }
     }
 }

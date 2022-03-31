@@ -9,6 +9,9 @@ using Web.Api.DAO.ContextBD;
 using Web.Api.Models.Repositorio;
 using Web.Api.Models.Settings;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using WEBAPITRAX.Auth;
 
 namespace WEBAPITRAX
 {
@@ -29,27 +32,29 @@ namespace WEBAPITRAX
 
             services.AddScoped<IServices, CoreApi>();
 
-            //services.AddSwaggerGen(options =>
-            //{
-            //    options.SwaggerDoc("ServiciosRest", new Microsoft.OpenApi.Models.OpenApiInfo()
-            //    {
-            //        Title = "Servicios Api Core",
-            //        Version = "1",
-            //        Description = "Documentación de Api Core"
-            //    });
-            //    options.CustomSchemaIds(type => type.ToString());
-            //});
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("ServiciosRest", new Microsoft.OpenApi.Models.OpenApiInfo()
+                {
+                    Title = "API REST SERVICIOS CORE ",
+                    Version = "1.0",
+                    Description = "Documentación"
+                });
+                options.CustomSchemaIds(type => type.ToString());
+            });
+            services.AddMvc(option => option.EnableEndpointRouting = false )
+                .SetCompatibilityVersion(CompatibilityVersion.Latest)
+                .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
             //services.AddMvc(option => option.EnableEndpointRouting = false)
             //    .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
             //     .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
             //services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
-            //services.AddControllers().AddNewtonsoftJson(options =>
-            //{
-            //    options.SerializerSettings.ContractResolver = new DefaultContractResolver();
-            //});
-
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
             services.AddRouting(options => options.LowercaseUrls = true);
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
@@ -64,17 +69,6 @@ namespace WEBAPITRAX
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
             });
-            services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
-            //var app = services.BuildServiceProvider();
-            //// Configure the HTTP request pipeline.
-            //if (app.Environment.IsDevelopment())
-            //{
-            //    app.UseSwagger();
-            //    app.UseSwaggerUI();
-            //}
-            //services.UseHttpsRedirection();
-            //services.UseAuthentication();
             services.AddAuthorization();
             //services.AddSingleton<IJwtAuthenticationService>(new JwtAuthenticationService(key));
 
@@ -86,19 +80,9 @@ namespace WEBAPITRAX
                 var loggingSection = Configuration.GetSection("Logging");
                 loggingBuilder.AddFile(loggingSection);
             });
+
         }
-        /*
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<QuoteDbContext>(options =>
-                    options.UseSqlite(Configuration.GetConnectionString("QuoteDbContext"),
-                    b => b.MigrationsAssembly("QOTD.WebApi")));
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddTransient<IQuoteService, QuoteService>();
-            services.AddControllers();
-        }
-        */
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+      
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -106,13 +90,13 @@ namespace WEBAPITRAX
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/ServiciosRest/swagger.json", "Api Core");
                 options.RoutePrefix = string.Empty;
             });
-
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
@@ -120,6 +104,8 @@ namespace WEBAPITRAX
             {
                 endpoints.MapControllers();
             });
+            
+            
         }
     }
 }

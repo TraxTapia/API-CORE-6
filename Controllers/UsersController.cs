@@ -30,7 +30,6 @@ namespace WEBAPITRAX.Controllers
             ObtenerUsuariosResponseDTO _Response = new ObtenerUsuariosResponseDTO ();
             try
             {
-
                 if (!ModelState.IsValid)
                 {
                     var _Errors = ModelState.Values.SelectMany(x => x.Errors).ToList();
