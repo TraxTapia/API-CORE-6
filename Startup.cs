@@ -12,7 +12,6 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using WEBAPITRAX.Auth;
-
 namespace WEBAPITRAX
 {
     public class Startup

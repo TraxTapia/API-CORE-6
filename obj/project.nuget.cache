@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "o4lA1UYOjfyAwmGASn1YpSvlnPfAwWsr83fjjbtkm9vgx+Q9zk/o5oSavqUlYacSX+u01gLoXBAwdThXrS02jA==",
+  "dgSpecHash": "58kRI2I6cd+k2mRzO0r8kUOCcDPmDqefz4BmEnmqjzwmy/cY7m+TZrB8RMItiOHyurenBGaIKrcTKjo3r+AcAQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ivan.tapia\\source\\repos\\WEBAPITRAX\\WEBAPITRAX.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\ivan.tapia\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\ivan.tapia\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\ivan.tapia\\.nuget\\packages\\nreco.logging.file\\1.1.4\\nreco.logging.file.1.1.4.nupkg.sha512",
+    "C:\\Users\\ivan.tapia\\.nuget\\packages\\qrcoder\\1.4.3\\qrcoder.1.4.3.nupkg.sha512",
     "C:\\Users\\ivan.tapia\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\ivan.tapia\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.3.0\\swashbuckle.aspnetcore.swagger.6.3.0.nupkg.sha512",
     "C:\\Users\\ivan.tapia\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
