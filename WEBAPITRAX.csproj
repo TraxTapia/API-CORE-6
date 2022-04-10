@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Web.Api.Generic\Web.Api.Generic.csproj" />
     <ProjectReference Include="..\Web.Api.Models\Web.Api.Models.csproj" />
     <ProjectReference Include="..\Web.Api.RepositoryTrax\Web.Api.RepositoryTrax.csproj" />
   </ItemGroup>

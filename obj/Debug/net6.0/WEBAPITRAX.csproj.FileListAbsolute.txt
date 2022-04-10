@@ -68,3 +68,6 @@ C:\Users\ivan.tapia\source\repos\WEBAPITRAX\bin\Debug\net6.0\Microsoft.AspNetCor
 C:\Users\ivan.tapia\source\repos\WEBAPITRAX\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\ivan.tapia\source\repos\WEBAPITRAX\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\ivan.tapia\source\repos\WEBAPITRAX\bin\Debug\net6.0\QRCoder.dll
+C:\Users\ivan.tapia\source\repos\WEBAPITRAX\bin\Debug\net6.0\BarcodeStandard.dll
+C:\Users\ivan.tapia\source\repos\WEBAPITRAX\bin\Debug\net6.0\Web.Api.Generic.dll
+C:\Users\ivan.tapia\source\repos\WEBAPITRAX\bin\Debug\net6.0\Web.Api.Generic.pdb

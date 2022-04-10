@@ -1,0 +1,5 @@
+10/04/2022 11:26:15.2615 a. m. | The given key 'CajaAhorror' was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at Web.Api.RepositoryTrax.Repository.RepositoryApi.GetUsers() in C:\Users\ivan.tapia\source\repos\Web.Api.RepositoryTrax\Repository\RepositoryApi.cs:line 53
+   at Web.Api.RepositoryTrax.Core.CoreApi.ObtenerUsuarios() in C:\Users\ivan.tapia\source\repos\Web.Api.RepositoryTrax\Core\CoreApi.cs:line 46
+   at WEBAPITRAX.Controllers.UsersController.GetUsers() in C:\Users\ivan.tapia\source\repos\WEBAPITRAX\Controllers\UsersController.cs:line 58

@@ -17,11 +17,24 @@
           "Swashbuckle.AspNetCore": "6.2.3",
           "Swashbuckle.AspNetCore.Swagger": "6.3.0",
           "System.Configuration.ConfigurationManager": "6.0.0",
+          "Web.Api.Generic": "1.0.0",
           "Web.Api.Models": "1.0.0",
           "Web.Api.RepositoryTrax": "1.0.0"
         },
         "runtime": {
           "WEBAPITRAX.dll": {}
+        }
+      },
+      "BarcodeLib/2.4.0": {
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0",
+          "System.Text.Json": "5.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/BarcodeStandard.dll": {
+            "assemblyVersion": "2.4.0.0",
+            "fileVersion": "2.4.0.0"
+          }
         }
       },
       "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.3": {
@@ -535,6 +548,7 @@
           "Microsoft.NETCore.Platforms": "3.1.0"
         }
       },
+      "System.Text.Json/5.0.2": {},
       "System.Windows.Extensions/6.0.0": {
         "dependencies": {
           "System.Drawing.Common": "6.0.0"
@@ -552,6 +566,14 @@
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.21.52210"
           }
+        }
+      },
+      "Web.Api.Generic/1.0.0": {
+        "dependencies": {
+          "BarcodeLib": "2.4.0"
+        },
+        "runtime": {
+          "Web.Api.Generic.dll": {}
         }
       },
       "Web.Api.Models/1.0.0": {
@@ -579,6 +601,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BarcodeLib/2.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SXMILkQm3jpngFmSa6AafsaJNid8UWCZh1v4w2oWxBzXnuVaL/S7H+nMxslWbPOPz1AVaLenRbFgy3OtX9J4dQ==",
+      "path": "barcodelib/2.4.0",
+      "hashPath": "barcodelib.2.4.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.3": {
       "type": "package",
@@ -972,12 +1001,24 @@
       "path": "system.text.encoding.codepages/4.7.0",
       "hashPath": "system.text.encoding.codepages.4.7.0.nupkg.sha512"
     },
+    "System.Text.Json/5.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I47dVIGiV6SfAyppphxqupertT/5oZkYLDCX6vC3HpOI4ZLjyoKAreUoem2ie6G0RbRuFrlqz/PcTQjfb2DOfQ==",
+      "path": "system.text.json/5.0.2",
+      "hashPath": "system.text.json.5.0.2.nupkg.sha512"
+    },
     "System.Windows.Extensions/6.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "Web.Api.Generic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Web.Api.Models/1.0.0": {
       "type": "project",

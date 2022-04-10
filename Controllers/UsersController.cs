@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using System.Configuration;
+using Web.Api.Generic.Logger;
 using Web.Api.Models.Models.Response;
 using Web.Api.Models.OperationResult;
 using Web.Api.Models.Settings;
@@ -14,14 +16,29 @@ namespace WEBAPITRAX.Controllers
     public class UsersController : ControllerBase
     {
         CoreApi implement = null;
-        private readonly ILogger logger;
+        private Logger _Logger;
+        private IConfiguration _Config;
+        private readonly IOptions<AppSettings> appSettings;
+        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _hostingEnvironment;
+        //private readonly ILogger logger;
         //private readonly NegocioExpedienteElectronico negocio;
 
-        public UsersController(IOptions<AppSettings> _appSettings, ILogger<UsersController> logger)
+        public UsersController(IOptions<AppSettings> _appSettings, ILogger<UsersController> logger,
+            IConfiguration _Configuration, Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment)
         {
+            _hostingEnvironment = hostingEnvironment;
+            string webRootPath = _hostingEnvironment.WebRootPath;
+            string contentRootPath = _hostingEnvironment.ContentRootPath;
             implement = new CoreApi(_appSettings);
-            this.logger = logger;
+            appSettings = _appSettings;
+            this._Config = _Configuration;
+            this._Logger = new Logger(webRootPath  + appSettings.Value.LogPath["Log"]);
+
+
+
+            //this._Logger = logger;
         }
+       
         [HttpPost]
         [Route("Api/GetUsers")]
         //[Authorize]
@@ -42,7 +59,7 @@ namespace WEBAPITRAX.Controllers
             }
             catch (Exception ex)
             {
-                //this._Logger.LogError(ex);
+                this._Logger.LogError(ex);
                 _Response.Result.SetStatusCode(OperationResult.StatusCodesEnum.INTERNAL_SERVER_ERROR);
                 _Response.Result.AddException(ex);
             }

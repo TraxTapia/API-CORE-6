@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "BarcodeLib/2.4.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "5.0.2",
+          "System.Text.Json": "5.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/BarcodeStandard.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BarcodeStandard.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.3": {
         "type": "package",
         "dependencies": {
@@ -799,6 +812,15 @@
           }
         }
       },
+      "System.Text.Json/5.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {}
+        }
+      },
       "System.Windows.Extensions/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -815,6 +837,19 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "Web.Api.Generic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BarcodeLib": "2.4.0"
+        },
+        "compile": {
+          "bin/placeholder/Web.Api.Generic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Web.Api.Generic.dll": {}
         }
       },
       "Web.Api.Models/1.0.0": {
@@ -848,6 +883,20 @@
     }
   },
   "libraries": {
+    "BarcodeLib/2.4.0": {
+      "sha512": "SXMILkQm3jpngFmSa6AafsaJNid8UWCZh1v4w2oWxBzXnuVaL/S7H+nMxslWbPOPz1AVaLenRbFgy3OtX9J4dQ==",
+      "type": "package",
+      "path": "barcodelib/2.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "barcodelib.2.4.0.nupkg.sha512",
+        "barcodelib.nuspec",
+        "lib/netstandard2.0/BarcodeStandard.dll",
+        "upca.jpg"
+      ]
+    },
     "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.3": {
       "sha512": "yXadCTYfe0AhgVZxLhG4ltra1BhteDumot2YRtQLOpJIVIPzanNsbFjeXomXiWWiU8qWNrK++gGYox3DaJBThg==",
       "type": "package",
@@ -2288,6 +2337,28 @@
         "version.txt"
       ]
     },
+    "System.Text.Json/5.0.2": {
+      "sha512": "I47dVIGiV6SfAyppphxqupertT/5oZkYLDCX6vC3HpOI4ZLjyoKAreUoem2ie6G0RbRuFrlqz/PcTQjfb2DOfQ==",
+      "type": "package",
+      "path": "system.text.json/5.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Text.Json.dll",
+        "lib/net461/System.Text.Json.xml",
+        "lib/netcoreapp3.0/System.Text.Json.dll",
+        "lib/netcoreapp3.0/System.Text.Json.xml",
+        "lib/netstandard2.0/System.Text.Json.dll",
+        "lib/netstandard2.0/System.Text.Json.xml",
+        "system.text.json.5.0.2.nupkg.sha512",
+        "system.text.json.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Windows.Extensions/6.0.0": {
       "sha512": "IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "type": "package",
@@ -2311,6 +2382,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Web.Api.Generic/1.0.0": {
+      "type": "project",
+      "path": "../Web.Api.Generic/Web.Api.Generic.csproj",
+      "msbuildProject": "../Web.Api.Generic/Web.Api.Generic.csproj"
+    },
     "Web.Api.Models/1.0.0": {
       "type": "project",
       "path": "../Web.Api.Models/Web.Api.Models.csproj",
@@ -2333,6 +2409,7 @@
       "Swashbuckle.AspNetCore >= 6.2.3",
       "Swashbuckle.AspNetCore.Swagger >= 6.3.0",
       "System.Configuration.ConfigurationManager >= 6.0.0",
+      "Web.Api.Generic >= 1.0.0",
       "Web.Api.Models >= 1.0.0",
       "Web.Api.RepositoryTrax >= 1.0.0"
     ]
@@ -2374,6 +2451,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\Users\\ivan.tapia\\source\\repos\\Web.Api.Generic\\Web.Api.Generic.csproj": {
+              "projectPath": "C:\\Users\\ivan.tapia\\source\\repos\\Web.Api.Generic\\Web.Api.Generic.csproj"
+            },
             "C:\\Users\\ivan.tapia\\source\\repos\\Web.Api.Models\\Web.Api.Models.csproj": {
               "projectPath": "C:\\Users\\ivan.tapia\\source\\repos\\Web.Api.Models\\Web.Api.Models.csproj"
             },

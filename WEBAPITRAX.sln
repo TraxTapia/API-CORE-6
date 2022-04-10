@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WEBAPITRAX", "WEBAPITRAX.cs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api.Models", "..\Web.Api.Models\Web.Api.Models.csproj", "{2E565DB8-F539-4010-96FC-5DBDDE7B184B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api.RepositoryTrax", "..\Web.Api.RepositoryTrax\Web.Api.RepositoryTrax.csproj", "{1F0B74EF-A9C2-4E2A-A81E-D49B7036CB24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api.RepositoryTrax", "..\Web.Api.RepositoryTrax\Web.Api.RepositoryTrax.csproj", "{1F0B74EF-A9C2-4E2A-A81E-D49B7036CB24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api.Generic", "..\Web.Api.Generic\Web.Api.Generic.csproj", "{2D77A3C6-2FFA-408C-ACE4-3EAAA3990FAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{1F0B74EF-A9C2-4E2A-A81E-D49B7036CB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F0B74EF-A9C2-4E2A-A81E-D49B7036CB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F0B74EF-A9C2-4E2A-A81E-D49B7036CB24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D77A3C6-2FFA-408C-ACE4-3EAAA3990FAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D77A3C6-2FFA-408C-ACE4-3EAAA3990FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D77A3C6-2FFA-408C-ACE4-3EAAA3990FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D77A3C6-2FFA-408C-ACE4-3EAAA3990FAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
